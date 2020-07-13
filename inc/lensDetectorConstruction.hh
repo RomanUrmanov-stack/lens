@@ -1,7 +1,7 @@
 #ifndef lensDetectorConstruction_h
 #define lensDetectorConstruction_h
 
-#include "lensSensitiveDetector.hh"
+//#include "lensSensitiveDetector.hh"
 
 #include "G4VUserDetectorConstruction.hh"
 #include "G4SystemOfUnits.hh"
@@ -14,8 +14,12 @@
 #include "G4PVPlacement.hh"
 #include "G4SubtractionSolid.hh"
 #include "G4ExtrudedSolid.hh"
+#include "G4UnionSolid.hh"
+#include "G4MultiUnion.hh"
+#include "G4Transform3D.hh"
+#include "G4RotationMatrix.hh"
 
-#include "G4PhysicalConstants.h"
+#include "G4PhysicalConstants.hh"
 
 #include "G4OpticalSurface.hh"
 #include "G4LogicalBorderSurface.hh"
@@ -32,7 +36,7 @@ class lensDetectorConstruction: public G4VUserDetectorConstruction
     virtual ~lensDetectorConstruction();
 
     virtual G4VPhysicalVolume* Construct();
-    static std::vector<G4double> get_crystal_dimensions();
+    //static std::vector<G4double> get_crystal_dimensions();
 
     static G4double world_x, world_y, world_z;
     static G4double crystal_x, crystal_y, crystal_z;
@@ -57,6 +61,8 @@ class lensDetectorConstruction: public G4VUserDetectorConstruction
 
     static G4double gap;
     static G4double teflon_thickness;
+    static G4double pt_thickness;
+    static G4double al_thickness;
     G4bool checkOverlaps;
 };
 
